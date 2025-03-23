@@ -147,10 +147,10 @@ This is the current 2025 driver line up: {', '.join(driver_prices.keys())}.
 This is the current 2025 constructor line up: {', '.join(constructor_prices.keys())}.
 
 🎯 OBJECTIVE:
-- Suggest exactly **2 transfers** (2 OUT and 2 IN) — drivers or constructors.
+- Suggest exactly {free_transfers} (OUT and IN includes 1 transfer) — drivers or constructors.
   - OUT must be from my current team
   - IN must be new players not already in the team
-- Use **at most ${100 - team_budget:.1f}M** for the 2 IN players (unless using Limitless chip).
+- Use **at most ${100 - team_budget:.1f}M** for the {free_transfers} IN players (unless using Limitless chip).
 - Recommend the best chip to use: Autopilot, Extra DRS Boost, No Negative, Wildcard, Limitless, Final Fix.
 - Always assign **2x DRS Boost** to one of my current drivers: {', '.join(current_team['drivers'])}
 - If using "Extra DRS Boost" chip:
@@ -183,8 +183,8 @@ Constructors: {', '.join(current_team['constructors'])}
 
 🧠 Return your response in this exact format (nothing else):
 
-- 2 OUT: [Player/Team Name 1, Player/Team Name 2]
-- 2 IN: [Player/Team Name 1, Player/Team Name 2]
+- {free_transfers} OUT: [Player/Team Name 1, Player/Team Name 2]
+- {free_transfers} IN: [Player/Team Name 1, Player/Team Name 2]
 - CHIP: (Autopilot, Extra DRS Boost, No Negative, Wildcard, Limitless, Final Fix)
 - BOOST:
     - 2x: (Driver name from current team)
