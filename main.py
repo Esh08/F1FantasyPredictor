@@ -12,8 +12,13 @@ load_dotenv()
 GEMINI_API_KEY = os.getenv("F1_GEMINI_API_KEY")
 genai.configure(api_key=GEMINI_API_KEY)
 
+# Ensure the cache directory exists
+if not os.path.exists("cache_dir"):
+    os.makedirs("cache_dir")
+
 # Enable FastF1 cache
 fastf1.Cache.enable_cache('cache_dir')
+
 
 # Title
 st.title("🏁 F1 Fantasy 2025: AI Team Optimizer")
